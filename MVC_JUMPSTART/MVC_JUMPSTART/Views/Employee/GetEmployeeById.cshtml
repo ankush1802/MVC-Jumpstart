@@ -1,0 +1,20 @@
+﻿@model MVC_JUMPSTART.Models.EmployeeViewModel
+@{
+    ViewBag.Title = "GetEmployeeById";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetEmployeeById</h2>
+<hr />
+
+Name: @Model.Name
+<br />
+EMail: @Model.Email
+<br />
+Number:  @Model.Mobile
+<br />
+@Html.ActionLink("Back To List", "GetEmployeeList")
+<br />
+<a href="@Url.Action("GetEmployeeList","Employee")" class="btn btn-primary">Back To List</a>
+
+

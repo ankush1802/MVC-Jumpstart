@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MVC_JUMPSTART.Models.EmployeeViewModel>
+@{
+    ViewBag.Title = "GetEmployeeList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetEmployeeList</h2>
+<hr />
+<a href="@Url.Action("CreateEmployee","Employee")" class="btn btn-primary">Create New Employee</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.Name</td>
+                <td>@employee.Email</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("UpdateEmployee","Employee",new {id = employee.Id })">Update</a>||
+                    <a class="btn btn-danger" href="@Url.Action("DeleteEmployee","Employee",new {id = employee.Id })">Delete</a>||
+                    <a class="btn btn-info" href="@Url.Action("GetEmployeeById","Employee",new {id = employee.Id })">View Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
